@@ -1,4 +1,3 @@
-
 <!-- Chosen Palette: Ball State Cardinals (Cardinal Red/Maroon, Light Gray, White) -->
 <!-- Application Structure Plan: A fixed-sidebar dashboard structure designed for non-linear exploration. The main content is split into five thematic, scrollable sections: 1. Introduction (Persona/Mission), 2. Snapshot Dashboard (Metrics), 3. Academic Foundation (Lists/Charts), 4. Project Showcase (Filterable Cards), and 5. Experience & Recognition (Timelines/Lists). This structure prioritizes immediate delivery of the key personal story before diving into data. -->
 <!-- Visualization & Content Choices:
@@ -262,7 +261,7 @@ CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
             major: "Finance",
             gpa: 3.9,
             impactScoreMultiplier: 10, // Adjusts how much projects/awards count towards total impact
-            
+
             // --- INTRODUCTION & BRANDING FIELDS ---
             photoUrl: "https://placehold.co/150x150/BA0C2F/FFFFFF/png?text=JONAH+C", // Replace with a URL to a professional headshot
             logoUrl: "https://placehold.co/40x40/BA0C2F/FFFFFF.png?text=BSU", // URL for your school logo or personal brand icon
@@ -347,7 +346,7 @@ CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
             document.getElementById('nav-title').textContent = profileData.tagline;
             document.getElementById('nav-school').textContent = document.documentElement.style.getPropertyValue('--school-name');
             document.title = `Portfolio Snapshot | ${profileData.studentName}`;
-            
+
             // Set Logo URL dynamically
             const logoElement = document.getElementById('nav-logo');
             logoElement.src = profileData.logoUrl;
@@ -418,7 +417,7 @@ CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
         function renderIntroduction() {
             const container = document.getElementById('introduction-content');
-            
+
             const content = `
                 <div class="md:col-span-1 flex justify-center md:justify-start">
                     <img src="${profileData.photoUrl}" 
@@ -471,7 +470,7 @@ CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
                 </div>
                 `;
             }).join('');
-            
+
             // Experience List
             expContainer.innerHTML = recognitionData.experience.map(item => {
                 const highlightedDetail = highlightBold(item.detail);
@@ -484,7 +483,7 @@ CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
                 `;
             }).join('');
         }
-        
+
         function renderProjectCards(projects) {
             const gridContainer = document.getElementById('projects-grid');
             gridContainer.innerHTML = projects.map(project => {
@@ -519,7 +518,7 @@ CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
         function renderProjectFilters() {
             const container = document.getElementById('project-filters');
             const categories = [...new Set(projectData.map(p => p.category))];
-            
+
             categories.forEach(category => {
                 const button = document.createElement('button');
                 button.className = 'btn-filter px-4 py-2 text-sm font-medium rounded-full border border-gray-300 bg-white hover:bg-gray-100 transition';
@@ -535,7 +534,7 @@ CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
                 if (e.target.classList.contains('btn-filter')) {
                     document.querySelectorAll('.btn-filter').forEach(btn => btn.classList.remove('active'));
                     e.target.classList.add('active');
-                    
+
                     const filter = e.target.dataset.filter;
                     const filteredProjects = filter === 'all' ? projectData : projectData.filter(p => p.category === filter);
                     renderProjectCards(filteredProjects);
@@ -544,7 +543,7 @@ CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
             // Initial render of all projects
             renderProjectCards(projectData);
-            
+
             // Scroll Navigation & Active State
             const observerOptions = {
                 root: null,
@@ -577,3 +576,4 @@ CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     </script>
 </body>
 </html>
+
