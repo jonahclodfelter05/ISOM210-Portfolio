@@ -1,9 +1,17 @@
+
+<!-- Chosen Palette: Ball State Cardinals (Cardinal Red/Maroon, Light Gray, White) -->
+<!-- Application Structure Plan: A fixed-sidebar dashboard structure designed for non-linear exploration. The main content is split into five thematic, scrollable sections: 1. Introduction (Persona/Mission), 2. Snapshot Dashboard (Metrics), 3. Academic Foundation (Lists/Charts), 4. Project Showcase (Filterable Cards), and 5. Experience & Recognition (Timelines/Lists). This structure prioritizes immediate delivery of the key personal story before diving into data. -->
+<!-- Visualization & Content Choices:
+1. Report Info -> Introduction (New) -> Goal -> Establish Persona/Connection -> Viz/Presentation Method -> Two-column layout with Profile Image and Mission Statement (HTML/CSS) -> Justification -> Creates instant rapport and communicates goals.
+2. Report Info -> GPA/Metrics -> Goal -> Instant Proof -> Viz/Presentation Method -> Doughnut Chart (Chart.js) and Impact Score (HTML/JS calculated) -> Interaction -> Metric comparison and visual GPA summary -> Justification -> Quick, visual affirmation of academic foundation.
+3. Report Info -> Coursework/Experience -> Goal -> Document Process & Proof -> Viz/Presentation Method -> Dynamic lists/tables (HTML/JS loop) -> Interaction -> Simple list rendering from easy-to-update JSON arrays -> Justification -> Ensures non-technical students can update content without touching HTML.
+4. Report Info -> Projects (C-S-R) -> Goal -> Showcase Outcomes -> Viz/Presentation Method -> Filterable Card Grid (HTML/JS) -> Interaction -> Buttons to filter cards by type (Code, Design, Research) -> Justification -> Allows quick filtering based on recruiter's specific needs.
+CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Portfolio Snapshot | Jonah Clodfelter</title>
+    <title>Student Portfolio Snapshot | [Jonah Clodfelter]</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
@@ -95,12 +103,15 @@
 </head>
 <body class="flex flex-col lg:flex-row min-h-screen text-gray-800">
 
+    <!-- Fixed Sidebar Navigation -->
     <nav class="sidebar p-6 sticky top-0 h-auto lg:h-screen z-10">
         <div class="mb-6 pb-4 border-b border-gray-200">
+            <!-- Logo Area -->
             <div class="flex items-center mb-3">
                 <img id="nav-logo" class="h-10 w-10 mr-3 inline-block align-middle rounded-lg" alt="School Logo Placeholder">
                 <p id="nav-school" class="text-xs font-semibold uppercase text-gray-500" style="color: var(--primary-color);">BALL STATE UNIVERSITY</p>
             </div>
+            <!-- Student Info -->
             <h1 id="nav-name" class="text-xl font-bold text-gray-900 mt-1">[STUDENT NAME]</h1>
             <p id="nav-title" class="text-sm text-gray-600 italic">Future-Focused Problem Solver</p>
         </div>
@@ -124,35 +135,43 @@
         </div>
     </nav>
 
+    <!-- Main Content Area -->
     <main class="main-content flex-grow p-4 md:p-10 lg:p-12 space-y-12 overflow-y-auto">
 
+        <!-- Section 0: Introduction (NEW) -->
         <section id="student-introduction" class="section-content max-w-6xl mx-auto space-y-6">
             <h2 class="text-3xl font-extrabold text-gray-900 border-b pb-2">Introduction & Personal Mission</h2>
             <div id="introduction-content" class="stat-card p-6 grid grid-cols-1 md:grid-cols-4 gap-6 items-start">
-                </div>
+                <!-- Content rendered by JS -->
+            </div>
         </section>
 
 
+        <!-- Section 1: Snapshot Dashboard -->
         <section id="snapshot-dashboard" class="section-content max-w-6xl mx-auto space-y-6">
             <h2 class="text-3xl font-extrabold text-gray-900 border-b pb-2">Snapshot & Impact</h2>
             <p class="text-gray-600">This dashboard provides a quick, data-driven summary of my current status and overall engagement. This is the **Proof** that I'm investing in my career from day one.</p>
 
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- Stat Card: Current Year -->
                 <div class="stat-card p-5">
                     <p class="text-sm font-medium text-gray-500">Current Status</p>
                     <p id="stat-year" class="text-3xl font-bold mt-1" style="color: var(--primary-color);">Freshman</p>
                     <p id="stat-major" class="text-sm text-gray-500 mt-1"></p>
                 </div>
+                <!-- Stat Card: Calculated Impact Score (The Sizzle!) -->
                 <div class="stat-card p-5">
                     <p class="text-sm font-medium text-gray-500">Calculated Impact Score</p>
                     <p id="stat-impact" class="text-3xl font-bold mt-1" style="color: var(--supporting-green);">0</p>
                     <p class="text-sm text-gray-500 mt-1">Reflects engagement across all key areas.</p>
                 </div>
+                <!-- Stat Card: Total Projects -->
                 <div class="stat-card p-5">
                     <p class="text-sm font-medium text-gray-500">Total Projects Documented</p>
                     <p id="stat-projects" class="text-3xl font-bold mt-1" style="color: var(--supporting-blue);">0</p>
                     <p class="text-sm text-gray-500 mt-1">Evidence of problem-solving.</p>
                 </div>
+                <!-- Stat Card: Total Awards -->
                 <div class="stat-card p-5">
                     <p class="text-sm font-medium text-gray-500">Awards & Recognition</p>
                     <p id="stat-awards" class="text-3xl font-bold mt-1" style="color: var(--supporting-yellow);">0</p>
@@ -161,11 +180,13 @@
             </div>
         </section>
 
+        <!-- Section 2: Academic Foundation -->
         <section id="academic-foundation" class="section-content max-w-6xl mx-auto space-y-6">
             <h2 class="text-3xl font-extrabold text-gray-900 border-b pb-2">Academic Foundation</h2>
             <p class="text-gray-600">My coursework demonstrates the core **Foundational Knowledge** and my technical trajectory. The chart below shows my current standing, while the list details the relevant classes taken.</p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- GPA Chart -->
                 <div class="stat-card p-4 md:col-span-1 flex flex-col items-center">
                     <p class="text-sm font-medium text-gray-500 mb-2">Cumulative GPA</p>
                     <div class="chart-container">
@@ -174,41 +195,53 @@
                     <p id="gpa-value" class="text-3xl font-bold mt-4" style="color: var(--primary-color);"></p>
                 </div>
 
+                <!-- Coursework List -->
                 <div class="stat-card p-6 md:col-span-2">
                     <h3 class="text-xl font-semibold mb-4 text-gray-800">Relevant Coursework</h3>
                     <div id="coursework-list" class="space-y-3">
-                        </div>
+                        <!-- Content rendered by JS -->
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Section 3: Project Showcase (Pillars 1 & 2) -->
         <section id="project-showcase" class="section-content max-w-6xl mx-auto space-y-6">
             <h2 class="text-3xl font-extrabold text-gray-900 border-b pb-2">Project Outcomes (C-S-R Format)</h2>
             <p class="text-gray-600">These projects show my ability to translate theory into practice (Pillar 1) and my personal initiative (Pillar 2). All entries follow the **Challenge, Solution, Result (C-S-R)** framework to focus on measurable outcomes.</p>
 
+            <!-- Filter Buttons -->
             <div id="project-filters" class="flex flex-wrap gap-3">
                 <button class="btn-filter px-4 py-2 text-sm font-medium rounded-full border border-gray-300 bg-white active" data-filter="all">Show All</button>
-                </div>
+                <!-- Filters rendered by JS -->
+            </div>
 
+            <!-- Project Cards -->
             <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                </div>
+                <!-- Content rendered by JS -->
+            </div>
         </section>
 
+        <!-- Section 4: Experience & Recognition (Pillars 3 & 4) -->
         <section id="recognition-experience" class="section-content max-w-6xl mx-auto space-y-6">
             <h2 class="text-3xl font-extrabold text-gray-900 border-b pb-2">Experience & Recognition</h2>
             <p class="text-gray-600">This section provides evidence of **real-world collaboration (Pillar 3)**, leadership, and external recognition, which demonstrate strong soft skills (Pillar 4).</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Experience (Extracurricular, Service, Jobs) -->
                 <div class="stat-card p-6">
                     <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center"><span class="text-2xl mr-2">🤝</span> Experience & Service</h3>
                     <div id="experience-list" class="space-y-4">
-                        </div>
+                        <!-- Content rendered by JS -->
+                    </div>
                 </div>
 
+                <!-- Awards & Recognition -->
                 <div class="stat-card p-6">
                     <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center"><span class="text-2xl mr-2">🏅</span> Awards & Recognition</h3>
                     <div id="awards-list" class="space-y-4">
-                        </div>
+                        <!-- Content rendered by JS -->
+                    </div>
                 </div>
             </div>
         </section>
@@ -219,7 +252,7 @@
         /* =====================================================================
         | 1. DATA ZONE: Student-Editable Content (JSON)
         |    Students should only update the variables and objects below.
-        | ===================================================================== */
+        ===================================================================== */
 
         // 1.1 PROFILE & BRANDING VARIABLES (REQUIRED)
         const profileData = {
@@ -257,46 +290,46 @@
         // 1.3 PROJECTS (REQUIRED: Follow C-S-R format)
         const projectData = [
             {
-                title: "Retirement Portfolio Monte Carlo Simulation",
-                category: "Financial Modeling",
-                challenge: "Required to assess the probability of a client outliving their savings based on variable market conditions.",
-                solution: "Built a Python-based simulation (utilizing Business Analytics concepts) to run 10,000 market scenarios against a 60/40 portfolio.",
-                result: "Identified a **92%** success rate for the client's plan and highlighted a **$200k** surplus in median scenarios.",
-                link: "https://github.com/jonah-c/finance-models" 
+                title: "Local Charity Website Redesign",
+                category: "Design",
+                challenge: "The local Humane Society site was not mobile-friendly, resulting in high bounce rates on the donation page.",
+                solution: "Designed and implemented a responsive, user-centered interface using HTML, Tailwind CSS, and vanilla JS.",
+                result: "Increased mobile conversion rate by **15%** and reduced bounce rate by **22%** in the first month.",
+                link: "https://github.com/riley/charity-site"
             },
             {
-                title: "Small Business Cost Optimization",
-                category: "Microeconomics",
-                challenge: "A local case study business faced shrinking margins due to rising supply chain costs and needed a pricing pivot.",
-                solution: "Applied calculus to determine the elasticity of demand and calculated the marginal revenue equal to marginal cost (MR=MC).",
-                result: "Proposed a dynamic pricing model projected to increase quarterly net profit by **14%** without sacrificing volume.",
+                title: "Twitter Sentiment Analyzer (Academic)",
+                category: "Code",
+                challenge: "Required to analyze public sentiment towards a political topic using programming tools for a final project.",
+                solution: "Used Python (Pandas/Matplotlib) to clean data and built a basic Naive Bayes classification model.",
+                result: "Achieved **82%** accuracy in classifying positive/negative tweets, earning the highest grade in the class (A).",
                 link: ""
             },
             {
-                title: "Tech Sector Regression Analysis",
-                category: "Data Analysis",
-                challenge: "Tasked with determining the correlation between Federal Reserve interest rate hikes and Tech Sector volatility.",
-                solution: "Aggregated 5 years of historical data and utilized Excel Data Analysis Toolpak to perform linear regression.",
-                result: "Achieved an R-squared value of **0.85**, accurately predicting volatility spikes within a **3-day** window of rate announcements.",
-                link: ""
+                title: "3D Planet Rendering",
+                category: "Code/Personal",
+                challenge: "A personal challenge to learn a new visualization library (three.js) over winter break.",
+                solution: "Created a simple animated model of a rotating planet using three.js, demonstrating coordinate system mastery.",
+                result: "Successfully rendered complex geometry and optimized the animation loop to maintain **60 FPS** on desktop browsers.",
+                link: "https://riley.github.io/planet-render"
             }
         ];
 
         // 1.4 EXPERIENCE & AWARDS (REQUIRED)
         const recognitionData = {
             experience: [
-                { title: "Student Managed Investment Fund Analyst", type: "Extracurricular", duration: "Jan 2025 - Present", detail: "Co-managed a **$50,000** virtual equity portfolio, outperforming the S&P 500 by **2.5%**." },
-                { title: "Academic Tutor (Calculus & Economics)", type: "Employment", duration: "Sep 2024 - Present", detail: "Provided **10+ hours** of weekly tutoring, helping 90% of students improve by at least **one letter grade**." },
+                { title: "Team Lead, Ball State Hackathon", type: "Extracurricular", duration: "Oct 2025", detail: "Led a four-person team to develop a functional prototype in **24 hours**." },
+                { title: "Library Volunteer (IT Support)", type: "Community Service", duration: "Jan - May 2025", detail: "Provided **40+ hours** of technical support for public computers and staff devices." },
             ],
             awards: [
-                { title: "Dean's List", duration: "Fall 2024 - Present", detail: "Maintained a **3.9 GPA** while taking a full course load." },
-                { title: "Miller College of Business Distinction", duration: "Spring 2025", detail: "Awarded to the top **5%** of sophomores for excellence in quantitative business analysis." },
+                { title: "Dean's List", duration: "Fall 2024", detail: "Achieved a **3.8 GPA**." },
+                { title: "Rising Star Freshman Award", duration: "Spring 2025", detail: "Recognized by the CS department for high academic achievement and engagement." },
             ]
         };
 
         /* =====================================================================
         | 2. CORE LOGIC (DO NOT EDIT)
-        | ===================================================================== */
+        ===================================================================== */
 
         const NAV_LINKS = document.querySelectorAll('.nav-link');
         let gpaDoughnutChart = null;
@@ -487,9 +520,6 @@
             const container = document.getElementById('project-filters');
             const categories = [...new Set(projectData.map(p => p.category))];
             
-            // Clear existing filters except "Show All"
-            container.innerHTML = '<button class="btn-filter px-4 py-2 text-sm font-medium rounded-full border border-gray-300 bg-white active" data-filter="all">Show All</button>';
-
             categories.forEach(category => {
                 const button = document.createElement('button');
                 button.className = 'btn-filter px-4 py-2 text-sm font-medium rounded-full border border-gray-300 bg-white hover:bg-gray-100 transition';
